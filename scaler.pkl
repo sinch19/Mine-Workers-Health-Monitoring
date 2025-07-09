@@ -1,0 +1,23 @@
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+import pickle
+
+# Sample data for fitting the scaler (representative of your input features)
+# Format: [Age, BMI, SpO2, Alcohol (0/1/2), Job Satisfaction]
+sample_data = np.array([
+    [25, 22.5, 97.0, 0, 7],
+    [30, 24.0, 95.0, 1, 6],
+    [35, 26.0, 94.0, 1, 5],
+    [45, 27.5, 93.0, 2, 4],
+    [50, 28.5, 92.0, 2, 3]
+])
+
+# Create and fit the scaler
+scaler = StandardScaler()
+scaler.fit(sample_data)
+
+# Save the fitted scaler to a file
+with open("scaler.pkl", "wb") as f:
+    pickle.dump(scaler, f)
+
+print("✅ scaler.pkl has been created successfully.")
